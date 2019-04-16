@@ -115,7 +115,7 @@ def set_power_status(clients, options):
 
         if (options["--action"]=="off"):
             logging.info("Deallocating " + vmName + " in resource group " + rgName)
-            compute_client.virtual_machines.deallocate(rgName, vmName)
+            compute_client.virtual_machines.power_off(rgName, vmName, skip_shutdown=True)
         elif (options["--action"]=="on"):
             logging.info("Starting " + vmName + " in resource group " + rgName)
             compute_client.virtual_machines.start(rgName, vmName)
